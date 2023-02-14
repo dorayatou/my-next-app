@@ -8,7 +8,7 @@ import { getSortedPostData } from "../lib/posts";
 import Date from "../components/date";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData }: { allPostsData: any }) {
   return (
     <Layout home>
       <Head>
@@ -17,14 +17,16 @@ export default function Home({ allPostsData }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
+          {allPostsData.map(
+            ({ id, date, title }: { id: any; date: any; title: any }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>{title}</Link>
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            )
+          )}
         </ul>
       </section>
     </Layout>
