@@ -6,7 +6,6 @@ import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import { getSortedPostData } from "../lib/posts";
 import Date from "../components/date";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ allPostsData }: { allPostsData: any }) {
   return (
