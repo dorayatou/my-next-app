@@ -127,6 +127,7 @@ export default function Home() {
     window.frame1 = processPg(frame1.data);
     window.frame2 = processPg(frame2.data);
     window.frame3 = processPg(frame3.data);
+    console.log("1");
   }, []);
 
   return (
