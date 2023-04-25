@@ -7,15 +7,21 @@ function getCenterPoint(bbox) {
     y: bbox.y + bbox.height / 2,
   };
 }
+export type Point = {
+  x: number;
+  y: number;
+};
 // 生成两点link的path值
 export const diagonal = (source: Point, target: Point): string =>
   `M ${source.x} ${source.y} L ${target.x} ${target.y}`;
 export default function Home() {
   console.log("home render");
-  const startPoint = useRef();
+  const startPoint = useRef<any>();
   const [lineData, setLineData] = useState([]);
   useEffect(() => {
     const canvas = select("#svg");
+    let circle1 = document.getElementById("circle1");
+    let circle3 = document.getElementById("circle3");
     let { x: x1, y: y1 } = getCenterPoint(circle1.getBoundingClientRect());
     let { x: x3, y: y3 } = getCenterPoint(circle3.getBoundingClientRect());
 

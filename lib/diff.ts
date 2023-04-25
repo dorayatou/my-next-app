@@ -1,4 +1,4 @@
-function isEqual(obj1, obj2) {
+function isEqual(obj1: any, obj2: any) {
   // 如果两个对象的引用相同，则返回 true
   if (obj1 === obj2) {
     return true;
@@ -33,12 +33,12 @@ function isEqual(obj1, obj2) {
 }
 
 export function customDiff(newData, oldData) {
-  const addedNodes = [];
-  const addedEdges = [];
-  const updatedNodes = [];
-  const updatedEdges = [];
-  const deletedNodes = [];
-  const deletedEdges = [];
+  const addedNodes: any[] = [];
+  const addedEdges: any[] = [];
+  const updatedNodes: any[] = [];
+  const updatedEdges: any[] = [];
+  const deletedNodes: any[] = [];
+  const deletedEdges: any[] = [];
 
   // 查找新增的节点和边
   newData.nodes.forEach(function (newNode) {

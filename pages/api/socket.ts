@@ -1,9 +1,18 @@
 // api下面是next.js的serverless
+import { Server as NetServer, Socket } from "net";
 import { NextApiRequest, NextApiResponse } from "next";
-import { Server } from "socket.io";
-import { logger } from "../../lib/utils";
+import { Server as SocketIoServer } from "socket.io";
 import { frame1, frame2 } from "../../mock/pg";
-const log = logger("socket handler");
+import { Server } from "http";
+const log = console.log;
+
+export type NextApiResponseServerIO = NextApiResponse & {
+  socket: Socket & {
+    server: NetServer & {
+      io: SocketIoServer;
+    };
+  };
+};
 
 export function getPgData(pgdata) {
   const result = JSON.parse(JSON.stringify(pgdata));
@@ -31,13 +40,13 @@ export function getPgData(pgdata) {
 
 let pgTimer;
 let i = 0;
-const SocketHandler = (req: NextApiRequest, res: NextApiResponse) => {
-  if (res.socket?.server.io) {
+const SocketHandler = (req: NextApiRequest, res: NextApiResponseServerIO) => {
+  if (res.socket.server.io) {
     console.log("Socket is already running");
   } else {
     console.log("Socket is initializing");
-    const httpServer = res.socket.server;
-    const io = new Server(httpServer);
+    const httpServer: Server = res.socket.server as any;
+    const io = new SocketIoServer(httpServer);
 
     io.on("error", () => {
       log("error");

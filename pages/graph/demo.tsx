@@ -6,12 +6,11 @@ import {
   processGraphData,
   demoData,
   demoData2,
-  pgGraph,
   mapEdgesData,
   processNewObj,
   processPg,
-} from "./data";
-import { getDistWeight } from "./utils";
+} from "../../lib/data";
+import { getDistWeight } from "../../lib/graph/utils";
 import { selectPg } from "../../store/graphSlice";
 import { useSelector } from "react-redux";
 import { useGetMessageQuery } from "../../store/api";
@@ -107,12 +106,12 @@ export default function Home() {
     // });
     // graphRef.current.layout(layoutOptions).run();
 
-    window.cy = graphRef.current;
+    // window.cy = graphRef.current;
   }, [pg]);
 
   useEffect(() => {
-    window.frame1 = processPg(frame1.data);
-    window.frame2 = processPg(frame2.data);
+    // window.frame1 = processPg(frame1.data);
+    // window.frame2 = processPg(frame2.data);
   }, []);
 
   return (

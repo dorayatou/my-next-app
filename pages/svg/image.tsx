@@ -27,7 +27,7 @@ export default function ImageDemo() {
 
     let screenTransform = sctm
       ? sctm
-      : document.getElementById("main")?.getScreenCTM();
+      : (select("#main").node() as SVGAElement).getScreenCTM();
 
     const inverseScreenTransform = screenTransform.inverse();
 
@@ -48,7 +48,7 @@ export default function ImageDemo() {
     const output = select("#output-wrapper");
     document.getElementById("main")?.addEventListener("dblclick", (e) => {
       // 鼠标点击的地方绘制circle
-      const matrix = mainG.node().getScreenCTM().inverse();
+      const matrix = (mainG.node() as SVGAElement).getScreenCTM().inverse();
       let point = new DOMPoint(e.clientX, e.clientY);
       let newPoint = point.matrixTransform(matrix);
       output.append("p").text(`坐标:${newPoint.x},${newPoint.y}`);
@@ -64,7 +64,7 @@ export default function ImageDemo() {
     function mousedown(e) {
       const { clientX, clientY } = e;
       const currentTransform = mainTransform.current;
-      const sctm = mainG.node().getScreenCTM();
+      const sctm = (mainG.node() as SVGAElement).getScreenCTM();
       const mouseStart = transformFromViewportToElement(
         clientX,
         clientY,

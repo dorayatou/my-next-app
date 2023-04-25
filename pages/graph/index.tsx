@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 // import cytoscape, { LayoutOptions } from "cytoscape";
-import cytoscape, { LayoutOptions } from "../../lib/cytoscape.esm.js";
+import cytoscape from "../../lib/cytoscape.esm.js";
 import dagre, { DagreLayoutOptions } from "cytoscape-dagre";
 import {
   graphdata,
@@ -11,13 +11,13 @@ import {
   processNewObj,
   processPg,
   mirrorPg,
-} from "./data";
-import { getDistWeight } from "./utils";
+} from "../../lib/data";
+import { getDistWeight } from "../../lib/graph/utils";
 import { selectPg } from "../../store/graphSlice";
 import { useSelector } from "react-redux";
 import { useGetMessageQuery } from "../../store/api";
 import { frame1, frame2, frame3 } from "../../mock/pg";
-import style from "./style";
+import style from "../../lib/style";
 
 cytoscape.use(dagre);
 /**
@@ -120,13 +120,13 @@ export default function Home() {
 
       cy.endBatch();
     }
-    window.cy = graphRef.current;
+    // window.cy = graphRef.current;
   }, [pg]);
 
   useEffect(() => {
-    window.frame1 = processPg(frame1.data);
-    window.frame2 = processPg(frame2.data);
-    window.frame3 = processPg(frame3.data);
+    // window.frame1 = processPg(frame1.data);
+    // window.frame2 = processPg(frame2.data);
+    // window.frame3 = processPg(frame3.data);
     console.log("1");
   }, []);
 

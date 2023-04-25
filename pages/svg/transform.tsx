@@ -44,7 +44,9 @@ export default function Home() {
       .attr("fill", "green")
       .attr("r", 10);
 
-    return () => svg.selectAll("*").remove();
+    return () => {
+      svg.selectAll("*").remove();
+    };
   }, []);
 
   useLayoutEffect(() => {}, []);

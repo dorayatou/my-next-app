@@ -13,6 +13,7 @@ const api = createApi({
   }),
   endpoints: (builder) => ({
     getMessage: builder.query<void, void>({
+      // @ts-ignore
       queryFn: () => ({ data: [] }),
       async onCacheEntryAdded(
         arg,
