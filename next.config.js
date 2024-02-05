@@ -2,7 +2,6 @@
 const nextConfig = {
   // reactStrictMode: false,
   ouput: "export",
-  distDir: "dist",
   trailingSlash: true,
   // experimental: {
   //   appDir: true,

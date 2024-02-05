@@ -1,0 +1,65 @@
+.container {
+   width: 1000px;
+   height: 1000px;
+   border: 1px solid red;
+   margin: auto;
+   position: relative;
+}
+.text {
+    border: 1px solid red;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    line-height: 40px;
+    margin-top: 100px;
+    position: relative;
+}
+.circleText {
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    bottom: -5px;
+    left: calc(50% - 5px);
+}
+.image {
+    background-image: url(./1280x720.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    margin-top: 300px;
+    position: relative;
+    transform: skew(-38deg, 0);
+}
+.box {
+    border: 1px solid red;
+    position: absolute;
+    top: 10px;
+    left: 140px;
+    width: 48px;
+    height: 70px;
+}
+.circle {
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 5px);
+}
+.svg {
+    position: absolute;
+    top: 0;
+}
+
+.line {
+    stroke: rgb(99,99,99);
+    stroke-width: 2;
+}
